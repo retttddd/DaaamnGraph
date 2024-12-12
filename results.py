@@ -5,6 +5,7 @@ def plot_results(model, data, trainX, seq_length):
     model.eval()
     predicted = model(trainX).detach().numpy()
 
+
     # Adjust original data and prediction for plotting
     original = data[seq_length:]  # Original data from the end of the first sequence
     time_steps = np.arange(seq_length, len(data))  # Corresponding time steps

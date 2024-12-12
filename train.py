@@ -4,7 +4,7 @@ from model import LSTMModel
 from dataset import prepare_data
 
 
-def train_model(seq_length, num_epochs=100, lr=0.01):
+def train_model(seq_length, num_epochs=1000, lr=0.01):
     data, trainX, trainY = prepare_data(seq_length)
 
     # Initialize model, loss, and optimizer
@@ -21,7 +21,7 @@ def train_model(seq_length, num_epochs=100, lr=0.01):
         loss.backward()
         optimizer.step()
 
-        if (epoch + 1) % 10 == 0:
+        if (epoch + 1) % 100 == 0:
             print(f'Epoch [{epoch + 1}/{num_epochs}], Loss: {loss.item():.4f}')
 
     return model, data, trainX
